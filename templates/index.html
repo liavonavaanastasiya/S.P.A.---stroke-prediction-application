@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Prediction</title>
+</head>
+<body>
+  <form action="/predict" method="POST" class="form">
+    <h1>Name of form</h1>
+    <div class="form__item">
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender">
+        <option value="" disabled selected></option>
+        <option value="Male">male</option>
+        <option value="Female">female</option>
+      </select>
+    </div>
+<!--   ['patient', 'gender', 'age', 'bmi', 'avg_glucose_level', 'hypertension',
+       'heart_disease', 'ever_married', 'work_type', 'residence', 'smoking',
+       'stroke']   -->
+    <div class="form__item">
+      <label for="age">Age:</label> 
+      <input id="age" name="age" type="number" min="1" max="120">
+    </div>
+       
+    <div class="form__item">
+      <label for="weight">Weight:</label>
+      <input id="weight" name="weight" type="number" min="1" max="200"> 
+    </div>
+    
+    <div class="form__item">
+      <label for="height">Height:</label>
+      <input id="height" name="height" type="number" min="50" max="250">
+    </div>
+    
+    <div class="form__item">
+      <label for="avg_glucose_level">Avg. Glucose level (mg/dL):</label>
+      <input id="avg_glucose_level" name="avg_glucose_level" type="text">
+    </div>
+    
+    <div class="form__item">
+      <label for="hypertension">Hypertension:</label>
+      <select id="hypertension" name="hypertension">
+        <option value="" disabled selected></option>
+        <option value="1">yes</option>
+        <option value="0">no</option>
+      </select>
+    </div>
+    
+    <div class="form__item">
+      <label for="heart_disease">Heart desease:</label>
+      <select id="heart_disease" name="heart_disease">
+        <option value="" disabled selected></option>
+        <option value="1">yes</option>
+        <option value="0">no</option>
+      </select>
+    </div>
+    
+    <div class="form__item">
+      <label for="ever_married">Ever merried:</label>
+      <select id="ever_married" name="ever_married">
+        <option value="" disabled selected></option>
+        <option value="1">yes</option>
+        <option value="0">no</option>
+      </select>
+    </div>
+    
+    <div class="form__item">
+      <label for="work_type">Work type:</label>
+      <select id="work_type" name="work_type">
+        <option value="" disabled selected></option>
+        <option value="Self-employed">Self-employed</option>
+        <option value="Private">Private</option>
+        <option value="Govt_job">Govt_job</option>
+        <option value="children">children</option>
+        <option value="Never_worked">Never_worked</option>
+      </select>
+    </div>
+    
+    <!-- <div class="form__item">
+      <label for="residence">Residence:</label>
+      <select id="residence">
+        <option value="" disabled selected></option>
+        <option value="rural">rural</option>
+        <option value="urban">urban</option>
+      </select>
+    </div> -->
+    
+      
+    <div class="form__item">
+      <label for="smoking">Smoking status:</label>
+      <select id="smoking" name="smoking">
+        <option value="" disabled selected></option>
+        <option value="2">never smoke</option>
+        <option value="1">unknown</option>
+        <option value="0">formerly smoked</option>
+        <option value="3">smoke</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Submit form</button>
+    
+  </form>
+    
+    <br>
+   <br>
+   {{ prediction_text }}
+</body>
+</html>

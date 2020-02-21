@@ -8,9 +8,14 @@
 </head>
 <body>
   <form action="/predict" method="POST" class="form">
-    <h1>Name of form</h1>
+    <h1>S.P.A. healthcare</h1>
+      
+      S.P.A. healthcare is a free of charge  socially oriented Stroke Prediction Application.
+Our mission – help you to prevent stroke.
+Please enter your information:
+      
     <div class="form__item">
-      <label for="gender">Gender:</label>
+      <label for="gender">Gender</label>
       <select id="gender" name="gender">
         <option value="" disabled selected></option>
         <option value="Male">male</option>
@@ -21,27 +26,39 @@
        'heart_disease', 'ever_married', 'work_type', 'residence', 'smoking',
        'stroke']   -->
     <div class="form__item">
-      <label for="age">Age:</label> 
+      <label for="age">Age, years</label> 
       <input id="age" name="age" type="number" min="1" max="120">
     </div>
        
     <div class="form__item">
-      <label for="weight">Weight:</label>
+      <label for="weight">Weight, kg</label>
       <input id="weight" name="weight" type="number" min="1" max="200"> 
     </div>
     
     <div class="form__item">
-      <label for="height">Height:</label>
+      <label for="height">Height, cm</label>
       <input id="height" name="height" type="number" min="50" max="250">
     </div>
     
     <div class="form__item">
-      <label for="avg_glucose_level">Avg. Glucose level (mg/dL):</label>
-      <input id="avg_glucose_level" name="avg_glucose_level" type="text">
+      <label for="smoking">Do you smoke?</label>
+      <select id="smoking" name="smoking">
+        <option value="" disabled selected></option>
+        <option value="2">never smoke</option>
+<!--         <option value="1">unknown</option> -->
+        <option value="0">formerly smoked</option>
+        <option value="3">smoke</option>
+      </select>
+    </div>
+      
+    <div class="form__item">
+      <label for="avg_glucose_level">Glucose level, mg/dL</label>
+      <input id="avg_glucose_level" name="avg_glucose_level" type="number" min="40" max="350">
     </div>
     
+      
     <div class="form__item">
-      <label for="hypertension">Hypertension:</label>
+      <label for="hypertension">Do you have hypertension?</label>
       <select id="hypertension" name="hypertension">
         <option value="" disabled selected></option>
         <option value="1">yes</option>
@@ -50,16 +67,16 @@
     </div>
     
     <div class="form__item">
-      <label for="heart_disease">Heart desease:</label>
+      <label for="heart_disease">Do you have any heart disease?</label>
       <select id="heart_disease" name="heart_disease">
         <option value="" disabled selected></option>
         <option value="1">yes</option>
         <option value="0">no</option>
       </select>
     </div>
-    
+
     <div class="form__item">
-      <label for="ever_married">Ever merried:</label>
+      <label for="ever_married">Have you ever been married?</label>
       <select id="ever_married" name="ever_married">
         <option value="" disabled selected></option>
         <option value="1">yes</option>
@@ -68,14 +85,14 @@
     </div>
     
     <div class="form__item">
-      <label for="work_type">Work type:</label>
+      <label for="work_type">What type of job you have?</label>
       <select id="work_type" name="work_type">
         <option value="" disabled selected></option>
         <option value="Self-employed">Self-employed</option>
         <option value="Private">Private</option>
-        <option value="Govt_job">Govt_job</option>
-        <option value="children">children</option>
-        <option value="Never_worked">Never_worked</option>
+        <option value="Govt_job">Governmental position</option>
+        <option value="children">I have not reached working age</option>
+        <option value="Never_worked">I have never worked</option>
       </select>
     </div>
     
@@ -89,23 +106,15 @@
     </div> -->
     
       
-    <div class="form__item">
-      <label for="smoking">Smoking status:</label>
-      <select id="smoking" name="smoking">
-        <option value="" disabled selected></option>
-        <option value="2">never smoke</option>
-        <option value="1">unknown</option>
-        <option value="0">formerly smoked</option>
-        <option value="3">smoke</option>
-      </select>
-    </div>
 
-    <button type="submit" class="btn btn-primary btn-block">Submit form</button>
+    <button type="submit" class="btn btn-primary btn-block">Predict</button>
     
   </form>
     
     <br>
    <br>
-   {{ prediction_text }}
+    <div> 
+      <h3>   {{ prediction_text }}</h3>
+      </div>
 </body>
 </html>

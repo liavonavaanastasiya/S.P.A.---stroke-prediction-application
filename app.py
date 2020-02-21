@@ -44,8 +44,13 @@ def predict():
 # #     features = features.iloc[-1,:]
     
     prediction = model.predict(features)
+    
+    probability = model.predict_proba(features)
+    
+    if prediction == 0:
+        out = f'Patient is OK Probability of stroke is {probability}'
+    else: out = f'Patient is in danger!!! Probability of stroke is {probability}'
 
-
-    return render_template('index.html', prediction_text=f'Stroke is probable $ {prediction}')
+    return render_template('index.html', prediction_text=out)
 if __name__ == "__main__":
     app.run()

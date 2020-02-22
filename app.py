@@ -45,11 +45,16 @@ def predict():
     
     prediction = model.predict(features)
     
-    probability = model.predict_proba(features)
+    probability = model.predict_proba(features)[:,1]
+    
+    
     
     if prediction == 0:
-        out = f'Patient is OK Probability of stroke is {probability}'
-    else: out = f'Patient is in danger!!! Probability of stroke is {probability}'
+        
+        return render_template('index.html', prediction_text=f'Patient is OK')
+    
+        
+    else: out = f'Patient is in danger!!! \n  Probability of stroke is {probability}'
 
     return render_template('index.html', prediction_text=out)
 if __name__ == "__main__":

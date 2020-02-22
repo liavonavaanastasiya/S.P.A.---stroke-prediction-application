@@ -44,17 +44,29 @@ def predict():
 # #     features = features.iloc[-1,:]
     
     prediction = model.predict(features)
-    
     probability = model.predict_proba(features)[:,1]
     
+    recomendations = []
     
+    if features['bmi'][0] > 25:
+        recomendations.append('You may loose some weight')
+    if features['smoking'][0] == 3:
+        recomendations.append('You may quit smiking')
+    if features['avg_glucose_level'][0] > 100:
+        recomendations.append('Visit your doctor to decrease your glycose level')
+    if features['hypertension'][0] == 1:
+        recomendations.append('Visit your doctor to control your blood pressure')
+    if features['heart_disease'][0] == 1:
+        recomendations.append('Visit your сardiologist at least once a year')
+        
+    recomendations = "<br />".join(recomendations)
     
     if prediction == 0:
-        
-        return render_template('index.html', prediction_text=f'Patient is OK')
+        return render_template('index.html', prediction_text=f'You are OK!')
     
+    else: 
+        out = f'You are at risk! \n  Probability of stroke is {probability} \n To reduce the risk, please follow the next recommendations: <br /> {recomendations}'
         
-    else: out = f'Patient is in danger!!! \n  Probability of stroke is {probability}'
 
     return render_template('index.html', prediction_text=out)
 if __name__ == "__main__":

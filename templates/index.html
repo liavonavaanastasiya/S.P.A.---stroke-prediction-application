@@ -10,9 +10,9 @@
   <form action="/predict" method="POST" class="form">
     <h1>S.P.A. healthcare</h1>
       
-      S.P.A. healthcare is a free of charge  socially oriented Stroke Prediction Application.
-Our mission – help you to prevent stroke.
-Please enter your information:
+    S.P.A. healthcare is a free of charge  socially oriented Stroke Prediction Application. <br /> 
+    Our mission – help you to prevent stroke.<br /> 
+    Please enter your information:
       
     <div class="form__item">
       <label for="gender">Gender</label>
@@ -22,9 +22,7 @@ Please enter your information:
         <option value="Female">female</option>
       </select>
     </div>
-<!--   ['patient', 'gender', 'age', 'bmi', 'avg_glucose_level', 'hypertension',
-       'heart_disease', 'ever_married', 'work_type', 'residence', 'smoking',
-       'stroke']   -->
+      
     <div class="form__item">
       <label for="age">Age, years</label> 
       <input id="age" name="age" type="number" min="1" max="120">
@@ -45,7 +43,6 @@ Please enter your information:
       <select id="smoking" name="smoking">
         <option value="" disabled selected></option>
         <option value="2">never smoke</option>
-<!--         <option value="1">unknown</option> -->
         <option value="0">formerly smoked</option>
         <option value="3">smoke</option>
       </select>

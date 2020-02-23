@@ -4,19 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <title>Prediction</title>
+  <title>S.P.A. healthcare</title>
+  <!-- href="{{ url_for('static', filename='css/style.css') }}" -->
 </head>
 <body>
   <form action="/predict" method="POST" class="form">
-    <h1>S.P.A. healthcare</h1>
-      
-    S.P.A. healthcare is a free of charge  socially oriented Stroke Prediction Application. <br /> 
-    Our mission – help you to prevent stroke.<br /> 
-    Please enter your information:
-      
+    <header>
+      <img src="{{ url_for('static', filename='logo.jpg') }}" alt="S.P.A. healthcare">
+
+      <span>
+        S.P.A. healthcare is a free of charge  socially oriented Stroke Prediction Application. <br /> 
+      Our mission – help you to prevent stroke.<br /> 
+      Please enter your information:
+      </span>
+    </header>
+    <main>        
     <div class="form__item">
       <label for="gender">Gender</label>
-      <select id="gender" name="gender">
+      <select id="gender" name="gender" required>
         <option value="" disabled selected></option>
         <option value="Male">male</option>
         <option value="Female">female</option>
@@ -25,22 +30,22 @@
       
     <div class="form__item">
       <label for="age">Age, years</label> 
-      <input id="age" name="age" type="number" min="1" max="120">
+      <input id="age" name="age" type="number" min="1" max="120" required>
     </div>
        
     <div class="form__item">
       <label for="weight">Weight, kg</label>
-      <input id="weight" name="weight" type="number" min="1" max="200"> 
+      <input id="weight" name="weight" type="number" min="1" max="200" required> 
     </div>
     
     <div class="form__item">
       <label for="height">Height, cm</label>
-      <input id="height" name="height" type="number" min="50" max="250">
+      <input id="height" name="height" type="number" min="50" max="250" required>
     </div>
     
     <div class="form__item">
       <label for="smoking">Do you smoke?</label>
-      <select id="smoking" name="smoking">
+      <select id="smoking" name="smoking" required>
         <option value="" disabled selected></option>
         <option value="2">never smoke</option>
         <option value="0">formerly smoked</option>
@@ -50,13 +55,13 @@
       
     <div class="form__item">
       <label for="avg_glucose_level">Glucose level, mg/dL</label>
-      <input id="avg_glucose_level" name="avg_glucose_level" type="number" min="40" max="350">
+      <input id="avg_glucose_level" name="avg_glucose_level" type="number" min="40" max="350" required>
     </div>
     
       
     <div class="form__item">
       <label for="hypertension">Do you have hypertension?</label>
-      <select id="hypertension" name="hypertension">
+      <select id="hypertension" name="hypertension" required>
         <option value="" disabled selected></option>
         <option value="1">yes</option>
         <option value="0">no</option>
@@ -65,7 +70,7 @@
     
     <div class="form__item">
       <label for="heart_disease">Do you have any heart disease?</label>
-      <select id="heart_disease" name="heart_disease">
+      <select id="heart_disease" name="heart_disease" required>
         <option value="" disabled selected></option>
         <option value="1">yes</option>
         <option value="0">no</option>
@@ -74,7 +79,7 @@
 
     <div class="form__item">
       <label for="ever_married">Have you ever been married?</label>
-      <select id="ever_married" name="ever_married">
+      <select id="ever_married" name="ever_married" required>
         <option value="" disabled selected></option>
         <option value="1">yes</option>
         <option value="0">no</option>
@@ -83,7 +88,7 @@
     
     <div class="form__item">
       <label for="work_type">What type of job you have?</label>
-      <select id="work_type" name="work_type">
+      <select id="work_type" name="work_type" required>
         <option value="" disabled selected></option>
         <option value="Self-employed">Self-employed</option>
         <option value="Private">Private</option>
@@ -102,16 +107,8 @@
       </select>
     </div> -->
     
-      
-
-    <button type="submit" class="btn btn-primary btn-block">Predict</button>
-    
+    <button type="submit" class="btn">Predict</button>
+  </main>
   </form>
-    
-    <br>
-   <br>
-    <div> 
-      <h3>   {{ prediction_text }}</h3>
-      </div>
 </body>
 </html>

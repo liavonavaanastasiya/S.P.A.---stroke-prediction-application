@@ -47,20 +47,20 @@ def predict():
     probability = model.predict_proba(features)[:,1]
     
     recomendations = []
-    
+#     
     if features['bmi'][0] > 25:
         recomendations.append('You may loose some weight')
         
     if features['smoking'][0] == 3:
-        recomendations.append('You may quit smiking')
+        recomendations.append('You may quit smoking')
         
     if (features['avg_glucose_level'][0] > 100) or (features['hypertension'][0] == 1) or (features['heart_disease'][0] == 1):
         recomendations.append('Visit your doctor ')
         
     if features['avg_glucose_level'][0] > 100:
-        recomendations.append('to decrease your glycose level')
+        recomendations.append('to manage your glycose level')
     if features['hypertension'][0] == 1:
-        recomendations.append('to control your blood pressure')
+        recomendations.append('to manage your blood pressure')
         
     recomendations = "\n".join(recomendations)
     

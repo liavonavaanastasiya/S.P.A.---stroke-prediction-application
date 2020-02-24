@@ -2,7 +2,7 @@
 
 import numpy as np
 import pandas as pd
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, Markup
 import pickle
 import joblib
 
@@ -68,9 +68,9 @@ def predict():
         return render_template('result.html', prediction_text="You are OK!")
     
     else: 
-        out = f'You are at risk! \n  Probability of stroke is {probability} \n To reduce the risk, please follow the next recommendations: \n {recomendations}'
+        out = f'You are at risk! <p>  </p>  Probability of stroke is {probability} \n To reduce the risk, please follow the next recommendations:'
         
 
-    return render_template('result.html', prediction_text=out)
+    return render_template('result.html', prediction_text=out, recomend=recomendations)
 if __name__ == "__main__":
     app.run()

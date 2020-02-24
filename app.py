@@ -49,7 +49,7 @@ def predict():
     recomendations = []
 #     
     if features['bmi'][0] > 25:
-        recomendations.append('You may loose some weight')
+        loose_weight('You may loose some weight')
         
     if features['smoking'][0] == 3:
         recomendations.append('You may quit smoking')
@@ -58,7 +58,7 @@ def predict():
         recomendations.append('Visit your doctor ')
         
     if features['avg_glucose_level'][0] > 100:
-        recomendations.append('to manage your glycose level')
+        recomendations.append('to manage your glucose level')
     if features['hypertension'][0] == 1:
         recomendations.append('to manage your blood pressure')
         
@@ -68,7 +68,7 @@ def predict():
         return render_template('result.html', prediction_text="You are OK!")
     
     else: 
-        out = f'You are at risk! <p>  </p>  Probability of stroke is {probability} \n To reduce the risk, please follow the next recommendations:'
+        out = f'You are at risk! Probability of stroke is {probability} \n To reduce the risk, please follow the next recommendations:'
         
 
     return render_template('result.html', prediction_text=out, recomend=recomendations)

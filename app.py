@@ -65,34 +65,34 @@ def predict():
         
 #     recomendations = "\n".join(recomendations)
 # =======
-recomendations = []
+    recomendations = []
 
-# 1st in feature importance list 
-if features['bmi'][0] > 25:
-    recomendations.append('Please, note that your BMI level is above normal. Even small amounts of weight loss can bring a range of health benefits such as stroke risk reduction, improved blood pressure, cholesterol and blood sugar levels. Making changes to your diet and physical activity can also have health benefits that are independent of weight loss, including increased energy, better sleep and reduced risk of depression.')
+    # 1st in feature importance list 
+    if features['bmi'][0] > 25:
+        recomendations.append('Please, note that your BMI level is above normal. Even small amounts of weight loss can bring a range of health benefits such as stroke risk reduction, improved blood pressure, cholesterol and blood sugar levels. Making changes to your diet and physical activity can also have health benefits that are independent of weight loss, including increased energy, better sleep and reduced risk of depression.')
 
-# 3rd in feature importance list  
-if features['avg_glucose_level'][0] > 100:
-    recomendations.append('The American Diabetes Association recommend target glucose level to be below 99 mg/dL before eating and below 130 mg/dL for a person with diabetes. Instead of targeting a specific level, the aim of managing blood sugar is to keep the levels within a healthy range.')
+    # 3rd in feature importance list  
+    if features['avg_glucose_level'][0] > 100:
+        recomendations.append('The American Diabetes Association recommend target glucose level to be below 99 mg/dL before eating and below 130 mg/dL for a person with diabetes. Instead of targeting a specific level, the aim of managing blood sugar is to keep the levels within a healthy range.')
 
-# 4th in feature importance list  
-if features['heart_disease'][0] == 1:
-    recomendations.append('It is important to understand that the link between heart disease and stroke is significant, several types of heart disease are risk factors for stroke. Please, visit your doctor to discuss lifestyle choices that will reduce your risk of stroke.')
-    
-# 5th in feature importance list 
-if features['hypertension'][0] == 1:
-    recomendations.append('Take care, high blood pressure damages arteries throughout the body, creating conditions where they can burst or clog more easily. Weakened arteries in the brain, resulting from high blood pressure, put you at a much higher risk for stroke — which is why managing high blood pressure is critical to reduce your chance of having a stroke. Healthy lifestyle changes may help you to keep it down.')   
-    
-# 6th in feature importance list 
-if features['smoking'][0] == 3:
-    recomendations.append('Dear, customer, we want you to know that tobacco smoking is a major risk factor for stroke. Current smokers have a 2-4 times increased risk of stroke compared with nonsmokers or those who have quit for >10 years')
+    # 4th in feature importance list  
+    if features['heart_disease'][0] == 1:
+        recomendations.append('It is important to understand that the link between heart disease and stroke is significant, several types of heart disease are risk factors for stroke. Please, visit your doctor to discuss lifestyle choices that will reduce your risk of stroke.')
 
-# for healthy people   
-if (features['bmi'][0] <= 25)  and (features['avg_glucose_level'][0] <= 100) and (features['heart_disease'][0] != 1) and (features['hypertension'][0] != 1) and (features['smoking'][0] != 3):
-    recomendations.append('Congratulations, stroke is unlikely. Please, take care and remember, that You can reduce the risk of stroke by avoiding smoking and stress, eating helthy food, exercising and doing regular check-ups')
-      
-recomendations = "\n".join(recomendations)
-# >>>>>>> fc463c26f733dda659470fbefeed6a013d362932
+    # 5th in feature importance list 
+    if features['hypertension'][0] == 1:
+        recomendations.append('Take care, high blood pressure damages arteries throughout the body, creating conditions where they can burst or clog more easily. Weakened arteries in the brain, resulting from high blood pressure, put you at a much higher risk for stroke — which is why managing high blood pressure is critical to reduce your chance of having a stroke. Healthy lifestyle changes may help you to keep it down.')   
+
+    # 6th in feature importance list 
+    if features['smoking'][0] == 3:
+        recomendations.append('Dear, customer, we want you to know that tobacco smoking is a major risk factor for stroke. Current smokers have a 2-4 times increased risk of stroke compared with nonsmokers or those who have quit for >10 years')
+
+    # for healthy people   
+    if (features['bmi'][0] <= 25)  and (features['avg_glucose_level'][0] <= 100) and (features['heart_disease'][0] != 1) and (features['hypertension'][0] != 1) and (features['smoking'][0] != 3):
+        recomendations.append('Congratulations, stroke is unlikely. Please, take care and remember, that You can reduce the risk of stroke by avoiding smoking and stress, eating helthy food, exercising and doing regular check-ups')
+
+    recomendations = "\n".join(recomendations)
+    # >>>>>>> fc463c26f733dda659470fbefeed6a013d362932
     
     if prediction == 0:
         return render_template('result.html', prediction_text="You are OK!")

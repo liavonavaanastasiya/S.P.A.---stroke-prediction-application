@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>S.P.A. healthcare</title>
+</head>
+<body>
+  <div class='form'>
+    <header>
+      <!-- <a href="index.html"><img src="../static/logo.jpg" alt="S.P.A. healthcare"></a> -->
+      <a href="/"><img src="{{ url_for('static', filename='logo.jpg') }}" alt="S.P.A. healthcare"></a>
+    </header>
+    <main>
+        {{ prediction_text }} <br>
+        {{ recomendation }} <br>
+        {{ lifestyle }} <br>
+        
+        {{ medical0 }} <br>
+        {{ medical1 }} <br>
+        {{ medical3 }} <br>
+        
+        
+        
+<!--         {{ prediction_text }} <br> -->
+      
+    </main>
+    <footer>
+      <a class="btn" href="/">
+        Back
+      </a>
+      <button class="btn" href="/about">
+        About model
+      </button>
+    </footer>
+  </div>
+</body>
+</html>

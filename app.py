@@ -99,8 +99,8 @@ def predict():
     
     else: 
         out = f'You are at risk! Probability of stroke is {probability} \n To reduce the risk, please follow the next recommendations:'
-        
 
-    return render_template('result.html', prediction_text=out, recomend=recomendations)
+    return render_template('result.html', prediction_text=out, recomendations=recomendations)
+
 if __name__ == "__main__":
     app.run()

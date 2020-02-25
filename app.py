@@ -95,7 +95,7 @@ def predict():
     # >>>>>>> fc463c26f733dda659470fbefeed6a013d362932
     
     if prediction == 0:
-        return render_template('result.html', prediction_text="You are OK!")
+        return render_template('result.html', prediction_text="You are OK!", recomendations='')
     
     else: 
         out = f'You are at risk! Probability of stroke is {probability} \n To reduce the risk, please follow the next recommendations:'

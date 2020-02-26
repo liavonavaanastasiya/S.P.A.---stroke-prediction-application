@@ -79,7 +79,7 @@ def predict():
         return render_template('result.html', prediction_text=f"Probability of stroke is less than {probability_proc:.1f}%", recomendations=recomendations)
     
     else: 
-        out = f'You are at risk! Probability of stroke is {probability} \n To reduce the risk, please follow the next recommendations:'
+        out = f'You are at risk! Probability of stroke is {probability_proc:.1f}% \n To reduce the risk, please follow the next recommendations:'
 
     return render_template('result.html', prediction_text=out, recomendations=recomendations)
 

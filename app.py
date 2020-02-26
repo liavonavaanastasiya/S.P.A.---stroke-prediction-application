@@ -45,26 +45,8 @@ def predict():
     
     prediction = model.predict(features)
     probability = model.predict_proba(features)[:,1]
+    probability_proc = probability[0]*100
     
-# <<<<<<< HEAD
-#     recomendations = []
-# #     
-#     if features['bmi'][0] > 25:
-#         loose_weight('You may loose some weight')
-        
-#     if features['smoking'][0] == 3:
-#         recomendations.append('You may quit smoking')
-        
-#     if (features['avg_glucose_level'][0] > 100) or (features['hypertension'][0] == 1) or (features['heart_disease'][0] == 1):
-#         recomendations.append('Visit your doctor ')
-        
-#     if features['avg_glucose_level'][0] > 100:
-#         recomendations.append('to manage your glucose level')
-#     if features['hypertension'][0] == 1:
-#         recomendations.append('to manage your blood pressure')
-        
-#     recomendations = "\n".join(recomendations)
-# =======
     recomendations = []
 
     # 1st in feature importance list 
@@ -87,15 +69,14 @@ def predict():
     if features['smoking'][0] == 3:
         recomendations.append('Dear, customer, we want you to know that tobacco smoking is a major risk factor for stroke. Current smokers have a 2-4 times increased risk of stroke compared with nonsmokers or those who have quit for >10 years')
 
-    # for healthy people   
-    if (features['bmi'][0] <= 25)  and (features['avg_glucose_level'][0] <= 100) and (features['heart_disease'][0] != 1) and (features['hypertension'][0] != 1) and (features['smoking'][0] != 3):
-        recomendations.append('Congratulations, stroke is unlikely. Please, take care and remember, that You can reduce the risk of stroke by avoiding smoking and stress, eating helthy food, exercising and doing regular check-ups')
-
     recomendations = "\n".join(recomendations)
     # >>>>>>> fc463c26f733dda659470fbefeed6a013d362932
     
     if prediction == 0:
-        return render_template('result.html', prediction_text="You are OK!", recomendations='')
+        # for healthy people   
+        if (features['bmi'][0] <= 25)  and (features['avg_glucose_level'][0] <= 100) and (features['heart_disease'][0] != 1) and (features['hypertension'][0] != 1) and (features['smoking'][0] != 3):
+            recomendations = 'Congratulations, stroke is unlikely. Please, take care and remember, that You can reduce the risk of stroke by avoiding smoking and stress, eating helthy food, exercising and doing regular check-ups'
+        return render_template('result.html', prediction_text=f"Probability of stroke is less than {probability_proc:.1f}%", recomendations=recomendations)
     
     else: 
         out = f'You are at risk! Probability of stroke is {probability} \n To reduce the risk, please follow the next recommendations:'

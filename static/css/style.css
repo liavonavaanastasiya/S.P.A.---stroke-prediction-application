@@ -4,14 +4,10 @@
   box-sizing: border-box;
 }
 
-html { width: 100%; height:100%;}
-
 body { 
   display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-  height: 100%;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   background: url(../background2.jpg) no-repeat;
@@ -25,6 +21,7 @@ body {
 .form {
   width: 90%;
   max-width: 800px;
+  height: 90%;
   /* height: calc(100% - 40px); */
   padding: 20px;
   /* если "другой бекграунд" поменять например на просто #fff */
@@ -34,12 +31,13 @@ body {
 }
 
 .form>header {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .form>header>img {
   float: left;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .form>main {
@@ -146,5 +144,12 @@ option {
 
   .form__item:nth-child(odd) {
     padding: 0;
+  }
+}
+
+@media all and (max-width: 599px) {
+  .form>header>img {
+    float: none;
+    display: block;
   }
 }

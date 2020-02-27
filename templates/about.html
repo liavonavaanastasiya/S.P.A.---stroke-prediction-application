@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+  <!-- <link rel="stylesheet" href="/static/css/style.css"> -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <title>S.P.A. healthcare</title>
 </head>
@@ -14,33 +14,81 @@
       <a href="/"><img src="{{ url_for('static', filename='logo.jpg') }}" alt="S.P.A. healthcare"></a>
     </header>
     <main>
-       
+
+      <p>
+        S.P.A. healthcare is a free of charge socially oriented Stroke Prediction Application.
+        Our main goal – inform people about probability of stroke and thus help people to prevent stroke.
+      </p>
+
+      <p>
         S.P.A. healthcare is a free of charge socially oriented Stroke Prediction Application. Our main goal – inform people about probability of stroke and thus help people to prevent stroke.<br>
+        This application is a pet project of the team of three data science students of DEVrepublik educational centre (Kyiv, Ukraine).
+      </p>
+       
+        Team members: <br>
+        <ul>
+          <li>
+            Anastasiya Liavonava<br>
+            <a href="https://github.com/liavonavaanastasiya" target="_blank">
+              https://github.com/liavonavaanastasiya
+            </a>
+            <br>
+            <a href="https://www.linkedin.com/in/anastasiya-liavonava/" target="_blank">
+              https://www.linkedin.com/in/anastasiya-liavonava/
+            </a>
+          </li>
 
-This application is a pet project of the team of three data science students of DEVrepublik educational centre (Kyiv, Ukraine).
-Team members: <br>
-- Anastasiya Liavonava<br>
-https://github.com/liavonavaanastasiya<br>
-https://www.linkedin.com/in/anastasiya-liavonava/<br>
--Oleg Babich<br>
-https://github.com/krabrakula<br>
--Iryna Levytska<br>
-https://github.com/iralevka123<br>
-DEVrepubliK is an open space for career growth, experience exchange and new opportunities.A fast-growing training provider to help you make your next step in the career. A reliable provider to make TOP professionals within 15 weeks bootcamp with immersive learning.<br>
+          <li>
+            -Oleg Babich<br>
+            <a href="https://github.com/krabrakula" target="_blank">
+              https://github.com/krabrakula
+            </a>
+          </li>
 
-Application model was trained on data provided by McKinsey - an American management consulting firm. Over the last few years, a chain of hospitals in the United States aiming to create the next generation of healthcare for its patients has captured several health, demographic and lifestyle details about its patients. This data includes such details as age and gender, along with several health parameters (e.g. hypertension, body mass index) and lifestyle related variables (e.g. smoking status, occupation type). There are records about more that 43 000 patients with 12 features, including the target feature called ‘stroke’. <br>
-
-During the project our team faced with binary classification problem. This is the task of classifying the elements of a data set into two groups on the basis of a specific classification rule. Given medical data requires a decision whether or not a person has some specified characteristic to be recognized as ill (does not have stroke) or healthy (has a stroke) and give customers information about probability of stroke they have.<br>
-eXtreme Gradient Boosting was chosen as the most suitable model for this task. XGBoost is a decision-tree-based ensemble Machine Learning algorithm that uses a gradient boosting framework. It has a  wide range of applications, portable, supports all major programming languages and integrate with different ecosystems.<br>
+          <li>
+            Iryna Levytska<br>
+            <a href="https://github.com/iralevka123" target="_blank">
+              https://github.com/iralevka123
+            </a>
+          </li>
+        </ul>
         
+        <p>
+          <a href="https://devrepublik.com/" target="_blank">DEVrepubliK</a> is an open space for career growth, experience exchange and new opportunities.
+          A fast-growing training provider to help you make your next step in the career. 
+          A reliable provider to make TOP professionals within 15 weeks bootcamp with immersive learning.
+        </p>
+
+        <p>
+          Application model was trained on data provided by McKinsey - an American management consulting firm. 
+          Over the last few years, a chain of hospitals in the United States aiming to create the next 
+          generation of healthcare for its patients has captured several health, demographic and lifestyle 
+          details about its patients. This data includes such details as age and gender, along with several 
+          health parameters (e.g. hypertension, body mass index) and lifestyle related variables (e.g. smoking 
+          status, occupation type). There are records about more that 43 000 patients with 12 features, 
+          including the target feature called ‘stroke’. 
+        </p>
+
+        <p>
+          During the project our team faced with binary classification problem. This is the task of classifying 
+          the elements of a data set into two groups on the basis of a specific classification rule.  
+          Given medical data requires a decision whether or not a person has some specified characteristic to 
+          be recognized as ill (does not have stroke) or healthy (has a stroke) and give customers information 
+          about probability of stroke they have.
+        </p>
+
+        <p>
+          eXtreme Gradient Boosting was chosen as the most suitable model for this task. XGBoost is a 
+          decision-tree-based ensemble Machine Learning algorithm that uses a gradient boosting framework. 
+          It has a  wide range of applications, portable, supports all major programming languages and 
+          integrate with different ecosystems.
+        </p>
     </main>
     <footer>
       <a class="btn" href="/">
+      <!-- <a class="btn" href="/index.html"> -->
         Back
       </a>
-      <button class="btn" href="/about">
-        About
-      </button>
     </footer>
   </div>
 </body>
